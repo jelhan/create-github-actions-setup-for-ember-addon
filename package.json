@@ -1,0 +1,25 @@
+{
+  "name": "create-github-actions-setup-for-ember-addon",
+  "version": "0.0.0",
+  "description": "Setup GitHub Actions for an Ember Addon",
+  "main": "dist/index.js",
+  "repository": "https://github.com/jelhan/create-github-actions-setup-for-ember-addon.git",
+  "author": "Jeldrik Hanschke <admin@jhanschke.de>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc",
+    "lint": "eslint '*/**/*.{js,ts}'",
+    "prepare": "tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/node12": "^1.0.7",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "ejs": "^3.1.5",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2"
+  }
+}
