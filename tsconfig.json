@@ -5,8 +5,9 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "outDir": "./dist",
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "typeRoots": [ "./types", "./node_modules/@types"]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "tests", "types"]
 }
