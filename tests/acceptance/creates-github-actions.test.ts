@@ -10,6 +10,7 @@ const executable = path.join(
   'bin',
   'create-github-actions-setup-for-ember-addon'
 );
+const fixturesPath = path.join(__dirname, '..', 'fixtures');
 
 let tmpDirForTesting: string;
 
@@ -24,6 +25,24 @@ afterEach(async () => {
 
 describe('creates GitHub Actions setup', () => {
   it('uses default values if no TravisCI configuration exists', async () => {
+    await execa(executable, [], {
+      cwd: tmpDirForTesting,
+    });
+
+    expect(
+      await fs.readFile(
+        path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
+        { encoding: 'utf-8' }
+      )
+    ).toMatchSnapshot();
+  });
+
+  it('migrates existing TravisCI configuration', async () => {
+    await fs.copyFile(
+      path.join(fixturesPath, '.travis-ci.yml.ember-3.20'),
+      path.join(tmpDirForTesting, '.travis-ci.yml')
+    );
+
     await execa(executable, [], {
       cwd: tmpDirForTesting,
     });

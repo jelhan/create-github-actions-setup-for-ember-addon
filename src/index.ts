@@ -1,7 +1,17 @@
 import ejs from 'ejs';
 import fs from 'fs';
+import parseTravisCiConfig from './utils/parse-travis-ci-config';
 import path from 'path';
 import process from 'process';
+
+interface ConfigurationInterface {
+  browsers: string[];
+  emberTryScenarios: {
+    allowedToFail: string[];
+    required: string[];
+  };
+  nodeVersion: string;
+}
 
 const gitHubActionsWorkflowFile = path.join(
   process.cwd(),
@@ -18,7 +28,7 @@ const templateFile = path.join(
   'workflows',
   'ci.yml'
 );
-const data = {
+const data: ConfigurationInterface = parseTravisCiConfig() ?? {
   browsers: ['chrome', 'firefox'],
   emberTryScenarios: {
     required: [
@@ -45,3 +55,5 @@ ejs.renderFile(templateFile, data, options, function (err, str) {
   fs.mkdirSync(path.dirname(gitHubActionsWorkflowFile), { recursive: true });
   fs.writeFileSync(gitHubActionsWorkflowFile, str);
 });
+
+export { ConfigurationInterface };
