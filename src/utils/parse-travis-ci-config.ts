@@ -48,7 +48,7 @@ export default function (): ConfigurationInterface | null {
 
   const config = yaml.safeLoad(configString, {
     onWarning: console.log,
-  });
+  }) as { [key: string]: any } | string | undefined;
 
   if (typeof config !== 'object') {
     console.error(config);
