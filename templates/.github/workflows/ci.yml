@@ -71,20 +71,15 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario: [
-          ember-lts-3.16,
-          ember-lts-3.20,
-          ember-release,
-          ember-beta,
-          ember-default-with-jquery,
-          ember-classic
+        ember-try-scenario: [<%
+          emberTryScenarios.required.forEach(function(scenario, index){ %>
+          <%- scenario %><% if (index < emberTryScenarios.required.length - 1) { %>,<% }}); %>
         ]
         allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
-          - ember-try-scenario: embroider-tests
-            allow-failure: true
+        include:<%
+          emberTryScenarios.allowedToFail.forEach(function(scenario){ %>
+          - ember-try-scenario: <%- scenario %>
+            allow-failure: true<% }); %>
 
     steps:
     - uses: actions/checkout@v2

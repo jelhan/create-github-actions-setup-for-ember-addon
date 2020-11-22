@@ -13,7 +13,7 @@
     "compile": "tsc",
     "lint": "eslint '*/**/*.{js,ts}'",
     "prepare": "tsc",
-    "test": "jest"
+    "test": "tsc && jest"
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.7",
