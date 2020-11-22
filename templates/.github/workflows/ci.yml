@@ -12,7 +12,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Lint
@@ -34,7 +34,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
@@ -56,7 +56,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
     - name: Test
@@ -87,7 +87,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test

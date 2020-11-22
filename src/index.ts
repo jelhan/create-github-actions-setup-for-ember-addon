@@ -30,6 +30,7 @@ const data = {
     ],
     allowedToFail: ['ember-canary', 'embroider-tests'],
   },
+  nodeVersion: '10.x',
 };
 const options = {
   // debug: true,
