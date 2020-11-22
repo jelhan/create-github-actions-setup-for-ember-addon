@@ -11,6 +11,7 @@ interface ConfigurationInterface {
     required: string[];
   };
   nodeVersion: string;
+  packageManager: 'npm' | 'yarn';
 }
 
 const gitHubActionsWorkflowFile = path.join(
@@ -42,6 +43,7 @@ const data: ConfigurationInterface = parseTravisCiConfig() ?? {
     allowedToFail: ['ember-canary', 'embroider-tests'],
   },
   nodeVersion: '10.x',
+  packageManager: 'yarn',
 };
 const options = {
   // debug: true,

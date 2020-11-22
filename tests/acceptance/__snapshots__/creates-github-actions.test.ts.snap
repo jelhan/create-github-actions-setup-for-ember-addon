@@ -17,9 +17,9 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
     - name: Lint
-      run: yarn lint
+      run: npm run-script lint
 
   test:
     name: Tests
@@ -39,9 +39,9 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
     - name: Test
-      run: yarn test:ember --launch \${{ matrix.browser }}
+      run: npm run-script test:ember --launch \${{ matrix.browser }}
 
   floating-dependencies:
     name: Floating Dependencies
@@ -61,9 +61,9 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install Dependencies
-      run: yarn install --no-lockfile --non-interactive
+      run: npm install --no-package-lock
     - name: Test
-      run: yarn test:ember --launch \${{ matrix.browser }}
+      run: npm run-script test:ember --launch \${{ matrix.browser }}
 
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
@@ -95,7 +95,7 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: npm ci
     - name: Test
       env:
         EMBER_TRY_SCENARIO: \${{ matrix.ember-try-scenario }}
