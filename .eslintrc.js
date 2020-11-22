@@ -10,6 +10,7 @@ module.exports = {
   env: {
     node: true,
   },
+  plugins: ['jest'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -19,9 +20,10 @@ module.exports = {
   overrides: [
     // tests
     {
-      files: ['tests/*'],
+      files: ['tests/**/*.test.js'],
+      extends: ['plugin:jest/recommended'],
       env: {
-        mocha: true,
+        'jest/globals': true,
       },
     },
   ],
