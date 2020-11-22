@@ -19,6 +19,7 @@ const templateFile = path.join(
   'ci.yml'
 );
 const data = {
+  browsers: ['chrome', 'firefox'],
   emberTryScenarios: {
     required: [
       'ember-lts-3.16',
