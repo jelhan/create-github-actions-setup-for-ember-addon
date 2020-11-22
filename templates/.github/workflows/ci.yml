@@ -14,9 +14,9 @@ jobs:
       with:
         node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: <% if (packageManager === 'npm') { %>npm ci<% } else { %>yarn install --frozen-lockfile<% } %>
     - name: Lint
-      run: yarn lint
+      run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> lint
 
   test:
     name: Tests
@@ -36,9 +36,9 @@ jobs:
       with:
         node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: <% if (packageManager === 'npm') { %>npm ci<% } else { %>yarn install --frozen-lockfile<% } %>
     - name: Test
-      run: yarn test:ember --launch ${{ matrix.browser }}
+      run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
 
   floating-dependencies:
     name: Floating Dependencies
@@ -58,9 +58,9 @@ jobs:
       with:
         node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
-      run: yarn install --no-lockfile --non-interactive
+      run: <% if (packageManager === 'npm') { %>npm install --no-package-lock<% } else { %>yarn install --no-lockfile --non-interactive<% } %>
     - name: Test
-      run: yarn test:ember --launch ${{ matrix.browser }}
+      run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
@@ -89,7 +89,7 @@ jobs:
       with:
         node-version: '<%- nodeVersion %>'
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: <% if (packageManager === 'npm') { %>npm ci<% } else { %>yarn install --frozen-lockfile<% } %>
     - name: Test
       env:
         EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}

@@ -1,6 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configuration 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-npm 1`] = `
+"name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: npm ci
+    - name: Lint
+      run: npm run-script lint
+
+  test:
+    name: Tests
+    runs-on: \${{ matrix.os }}
+    needs: lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        browser: [chrome]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: npm ci
+    - name: Test
+      run: npm run-script test:ember --launch \${{ matrix.browser }}
+
+  floating-dependencies:
+    name: Floating Dependencies
+    runs-on: \${{ matrix.os }}
+    needs: lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        browser: [chrome]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: npm install --no-package-lock
+    - name: Test
+      run: npm run-script test:ember --launch \${{ matrix.browser }}
+
+  try-scenarios:
+    name: Tests - \${{ matrix.ember-try-scenario }}
+    runs-on: ubuntu-latest
+    continue-on-error: \${{ matrix.allow-failure }}
+    needs: test
+
+    strategy:
+      fail-fast: true
+      matrix:
+        ember-try-scenario: [
+          ember-lts-3.12,
+          ember-lts-3.16,
+          ember-release,
+          ember-beta,
+          ember-default-with-jquery,
+          ember-classic
+        ]
+        allow-failure: [false]
+        include:
+          - ember-try-scenario: ember-canary
+            allow-failure: true
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: npm ci
+    - name: Test
+      env:
+        EMBER_TRY_SCENARIO: \${{ matrix.ember-try-scenario }}
+      run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+"
+`;
+
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-yarn 1`] = `
 "name: CI
 
 on: [push, pull_request]
@@ -77,6 +180,7 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12,
           ember-lts-3.16,
+          ember-lts-3.20,
           ember-release,
           ember-beta,
           ember-default-with-jquery,

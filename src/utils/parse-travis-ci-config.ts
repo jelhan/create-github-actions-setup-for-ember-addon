@@ -5,6 +5,32 @@ import path from 'path';
 import process from 'process';
 import yaml from 'js-yaml';
 
+function determinePackageManager(config: {
+  jobs?: {
+    include?: {
+      script?: string[];
+    }[];
+  };
+}): 'npm' | 'yarn' {
+  for (const jobDescription of config.jobs?.include ?? []) {
+    const { script } = jobDescription;
+
+    for (const command of script ?? []) {
+      if (command.startsWith('npm')) {
+        return 'npm';
+      }
+
+      if (command.startsWith('yarn')) {
+        return 'yarn';
+      }
+    }
+  }
+
+  throw new Error(
+    'Could not determine a supported package manager from TravisCI configuration'
+  );
+}
+
 export default function (): ConfigurationInterface | null {
   const configFile = path.join(process.cwd(), '.travis-ci.yml');
 
@@ -28,14 +54,11 @@ export default function (): ConfigurationInterface | null {
     console.error(config);
     throw new Error('Parsing .travis-ci.yml failed');
   }
-  console.log(config.jobs);
 
   const browsers = ['chrome', 'firefox'].filter((_) =>
     Object.keys(config.addons).includes(_)
   );
   const nodeVersion = `${config.node_js?.[0]}.x`;
-
-  console.log(config);
 
   const emberTryScenarios: string[] = config.jobs.include
     .map(({ env }: { env: unknown }): string | null => {
@@ -61,6 +84,8 @@ export default function (): ConfigurationInterface | null {
     (scenario) => !allowedToFailEmberTryScenarios.includes(scenario)
   );
 
+  const packageManager: 'npm' | 'yarn' = determinePackageManager(config);
+
   return {
     browsers,
     emberTryScenarios: {
@@ -68,5 +93,6 @@ export default function (): ConfigurationInterface | null {
       allowedToFail: allowedToFailEmberTryScenarios,
     },
     nodeVersion,
+    packageManager,
   };
 }
