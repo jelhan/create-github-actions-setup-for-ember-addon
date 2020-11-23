@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember.3.8-npm 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember.3.8-npm 1`] = `
 "name: CI
 
 on:
@@ -106,7 +106,7 @@ jobs:
 "
 `;
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember.3.12-npm 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember.3.12-npm 1`] = `
 "name: CI
 
 on:
@@ -212,7 +212,7 @@ jobs:
 "
 `;
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.4-npm 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember-3.4-npm 1`] = `
 "name: CI
 
 on:
@@ -318,7 +318,7 @@ jobs:
 "
 `;
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.16-npm 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember-3.16-npm 1`] = `
 "name: CI
 
 on:
@@ -425,7 +425,7 @@ jobs:
 "
 `;
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-npm 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember-3.20-npm 1`] = `
 "name: CI
 
 on:
@@ -532,7 +532,7 @@ jobs:
 "
 `;
 
-exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-yarn 1`] = `
+exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis.yml.ember-3.20-yarn 1`] = `
 "name: CI
 
 on:

@@ -45,7 +45,7 @@ describe('creates GitHub Actions setup', () => {
       it(`supports scenario ${scenario}`, async () => {
         await fsPromises.copyFile(
           path.join(fixturesPath, scenario),
-          path.join(tmpDirForTesting, '.travis-ci.yml')
+          path.join(tmpDirForTesting, '.travis.yml')
         );
 
         await execa(executable, [], {

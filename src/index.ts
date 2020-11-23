@@ -1,3 +1,4 @@
+import debug from './utils/debug';
 import ejs from 'ejs';
 import fs from 'fs';
 import parseTravisCiConfig from './utils/parse-travis-ci-config';
@@ -54,6 +55,7 @@ ejs.renderFile(templateFile, data, options, function (err, str) {
     throw err;
   }
 
+  debug(`Writing GitHub Actions workflow to ${gitHubActionsWorkflowFile}`);
   fs.mkdirSync(path.dirname(gitHubActionsWorkflowFile), { recursive: true });
   fs.writeFileSync(gitHubActionsWorkflowFile, str);
 });

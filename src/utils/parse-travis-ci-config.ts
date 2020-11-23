@@ -1,5 +1,5 @@
 import { ConfigurationInterface } from '../index';
-import debug from 'debug';
+import debug from './debug';
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
@@ -32,7 +32,9 @@ function determinePackageManager(config: {
 }
 
 export default function (): ConfigurationInterface | null {
-  const configFile = path.join(process.cwd(), '.travis-ci.yml');
+  const configFile = path.join(process.cwd(), '.travis.yml');
+
+  debug(`Looking for TravisCI configuration at ${configFile}`);
 
   let configString;
   try {
@@ -52,7 +54,7 @@ export default function (): ConfigurationInterface | null {
 
   if (typeof config !== 'object') {
     console.error(config);
-    throw new Error('Parsing .travis-ci.yml failed');
+    throw new Error('Parsing .travis.yml failed');
   }
 
   const browsers = ['chrome', 'firefox'].filter((_) =>
