@@ -3,7 +3,11 @@
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember.3.8-npm 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -105,7 +109,11 @@ jobs:
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember.3.12-npm 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -207,7 +215,11 @@ jobs:
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.4-npm 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -309,7 +321,11 @@ jobs:
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.16-npm 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -412,7 +428,11 @@ jobs:
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-npm 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -515,7 +535,11 @@ jobs:
 exports[`creates GitHub Actions setup migrates existing TravisCI configration supports scenario .travis-ci.yml.ember-3.20-yarn 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
@@ -619,7 +643,11 @@ jobs:
 exports[`creates GitHub Actions setup uses default values if no TravisCI configuration exists 1`] = `
 "name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
