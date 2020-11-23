@@ -1,3 +1,14 @@
+## v0.1.2 (2020-11-23)
+
+#### :bug: Bug Fix
+* [#7](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/7) CI should run only once per commit ([@jelhan](https://github.com/jelhan))
+
+#### :house: Internal
+* [#8](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/8) run own CI only once per pull request ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.1.1 (2020-11-22)
 
 #### :bug: Bug Fix
