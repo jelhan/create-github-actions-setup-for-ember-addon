@@ -1,3 +1,11 @@
+## v0.1.3 (2020-11-23)
+
+#### :bug: Bug Fix
+* [#10](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/10) fix typo in expected travis CI config file name ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.1.2 (2020-11-23)
 
 #### :bug: Bug Fix
