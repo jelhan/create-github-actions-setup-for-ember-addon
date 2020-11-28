@@ -23,7 +23,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -173,7 +173,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -323,7 +323,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -473,7 +473,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -624,7 +624,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -775,7 +775,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
@@ -927,7 +927,7 @@ jobs:
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:

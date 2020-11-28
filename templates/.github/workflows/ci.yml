@@ -25,7 +25,7 @@ jobs:
         } else {
           %>yarn cache dir<%
         } %>)"
-    - name: Cache Yarn cache
+    - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
       with:
