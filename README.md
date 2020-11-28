@@ -20,7 +20,7 @@ npm init github-actions-setup-for-ember-addon
 
 Merge requests are very much appreciated. Parts that could be improved are:
 
-- The generated GitHub Actions workflow may not reflect latest best practices. E.g. it does not use caching yet.
+- The generated GitHub Actions workflow may not reflect latest best practices.
 - The script is only tested against TravisCI configurations created by recent Ember CLI versions so far. Extending that test coverage (and fixing bugs) would be great.
 - Only a very limited subset of common customizations of the default TravisCI configuration is supported. Would love to support more common patterns.
 - The script could be extended to allow the user to set configuration variables with command line flags rather than extracting them from an existing TravisCI configuration.
