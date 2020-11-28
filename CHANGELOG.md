@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.0 (2020-11-28)
+
+#### :rocket: Enhancement
+* [#11](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/11) cache dependencies in created workflow ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.1.3 (2020-11-23)
 
 #### :bug: Bug Fix
