@@ -1,3 +1,5 @@
+# Changelog
+
 ## v0.1.3 (2020-11-23)
 
 #### :bug: Bug Fix
@@ -31,6 +33,3 @@
 ## v0.1.0 (2020-11-22)
 
 Initial release
-
-
-# Changelog
