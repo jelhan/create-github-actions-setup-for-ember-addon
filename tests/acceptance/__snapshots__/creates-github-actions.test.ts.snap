@@ -9,6 +9,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '6.x'
+
 jobs:
   lint:
     name: Lint
@@ -19,7 +22,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -63,7 +66,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -107,7 +110,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -162,7 +165,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -203,6 +206,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '8.x'
+
 jobs:
   lint:
     name: Lint
@@ -213,7 +219,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '8.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -257,7 +263,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '8.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -301,7 +307,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '8.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -356,7 +362,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '8.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -397,6 +403,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '6.x'
+
 jobs:
   lint:
     name: Lint
@@ -407,7 +416,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -451,7 +460,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -495,7 +504,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -550,7 +559,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '6.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -591,6 +600,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '10.x'
+
 jobs:
   lint:
     name: Lint
@@ -601,7 +613,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -645,7 +657,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -689,7 +701,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -745,7 +757,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -786,6 +798,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '10.x'
+
 jobs:
   lint:
     name: Lint
@@ -796,7 +811,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -840,7 +855,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -884,7 +899,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -940,7 +955,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(npm config get cache)\\"
@@ -981,6 +996,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '10.x'
+
 jobs:
   lint:
     name: Lint
@@ -991,7 +1009,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1035,7 +1053,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1079,7 +1097,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1136,7 +1154,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1177,6 +1195,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '10.x'
+
 jobs:
   lint:
     name: Lint
@@ -1187,7 +1208,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1231,7 +1252,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1275,7 +1296,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"
@@ -1333,7 +1354,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '\${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo \\"::set-output name=dir::$(yarn cache dir)\\"

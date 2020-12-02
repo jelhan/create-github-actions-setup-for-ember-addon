@@ -6,6 +6,9 @@ on:
       - master
   pull_request:
 
+env:
+  NODE_VERSION: '<%- nodeVersion %>'
+
 jobs:
   lint:
     name: Lint
@@ -16,7 +19,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '<%- nodeVersion %>'
+        node-version: '${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -90,7 +93,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '<%- nodeVersion %>'
+        node-version: '${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -164,7 +167,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '<%- nodeVersion %>'
+        node-version: '${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -247,7 +250,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '<%- nodeVersion %>'
+        node-version: '${{ env.NODE_VERSION }}'
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
