@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.1 (2020-12-02)
+
+#### :bug: Bug Fix
+* [#18](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/18) cache key should not mention yarn if NPM is used ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.2.0 (2020-11-28)
 
 #### :rocket: Enhancement
