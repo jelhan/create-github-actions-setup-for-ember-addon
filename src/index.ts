@@ -1,7 +1,7 @@
 import debug from './utils/debug';
 import ejs from 'ejs';
 import fs from 'fs';
-import parseTravisCiConfig from './utils/parse-travis-ci-config';
+import parseTravisCiConfig from './parser/travis-ci';
 import path from 'path';
 import process from 'process';
 

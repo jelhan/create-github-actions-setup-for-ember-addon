@@ -1,5 +1,5 @@
 import { ConfigurationInterface } from '../index';
-import debug from './debug';
+import debug from '../utils/debug';
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
