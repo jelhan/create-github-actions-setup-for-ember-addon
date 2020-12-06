@@ -17,9 +17,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
+
     - uses: actions/setup-node@v2-beta
       with:
         node-version: '${{ env.NODE_VERSION }}'
+
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -28,6 +30,7 @@ jobs:
         } else {
           %>yarn cache dir<%
         } %>)"
+
     - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
@@ -51,6 +54,7 @@ jobs:
           } else {
             %>yarn.lock<%
           } %>-
+
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v1
@@ -64,6 +68,7 @@ jobs:
           } %>') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
@@ -74,8 +79,10 @@ jobs:
       if: |
         steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
         steps.cache-node-modules.outputs.cache-hit != 'true'
+
     - name: Lint
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> lint
+
 
   test:
     name: Tests
@@ -91,9 +98,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
+
     - uses: actions/setup-node@v2-beta
       with:
         node-version: '${{ env.NODE_VERSION }}'
+
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -102,6 +111,7 @@ jobs:
         } else {
           %>yarn cache dir<%
         } %>)"
+
     - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
@@ -125,6 +135,7 @@ jobs:
           } else {
             %>yarn.lock<%
           } %>-
+
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v1
@@ -138,6 +149,7 @@ jobs:
           } %>') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
@@ -148,8 +160,10 @@ jobs:
       if: |
         steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
         steps.cache-node-modules.outputs.cache-hit != 'true'
+
     - name: Test
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
+
 
   floating-dependencies:
     name: Floating Dependencies
@@ -165,9 +179,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
+
     - uses: actions/setup-node@v2-beta
       with:
         node-version: '${{ env.NODE_VERSION }}'
+
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -176,6 +192,7 @@ jobs:
         } else {
           %>yarn cache dir<%
         } %>)"
+
     - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
@@ -199,6 +216,7 @@ jobs:
           } else {
             %>yarn.lock<%
           } %>-
+
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v1
@@ -212,6 +230,7 @@ jobs:
           } %>') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
@@ -222,8 +241,10 @@ jobs:
       if: |
         steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
         steps.cache-node-modules.outputs.cache-hit != 'true'
+
     - name: Test
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
+
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
@@ -248,9 +269,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
+
     - uses: actions/setup-node@v2-beta
       with:
         node-version: '${{ env.NODE_VERSION }}'
+
     - name: Get package manager's global cache path
       id: global-cache-dir-path
       run: echo "::set-output name=dir::$(<%
@@ -259,6 +282,7 @@ jobs:
         } else {
           %>yarn cache dir<%
         } %>)"
+
     - name: Cache package manager's global cache
       id: cache-global-package-manager-cache
       uses: actions/cache@v1
@@ -282,6 +306,7 @@ jobs:
           } else {
             %>yarn.lock<%
           } %>-
+
     - name: Cache node_modules
       id: cache-node-modules
       uses: actions/cache@v1
@@ -295,6 +320,7 @@ jobs:
           } %>') }}
         restore-keys: |
           ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
@@ -305,6 +331,7 @@ jobs:
       if: |
         steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
         steps.cache-node-modules.outputs.cache-hit != 'true'
+
     - name: Test
       env:
         EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
