@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.3.0 (2020-12-06)
+
+#### :rocket: Enhancement
+* [#23](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/23) Improved readability of created workflow ([@ijlee2](https://github.com/ijlee2))
+* [#20](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/20) Simplify node version upgrades by defining it once in created workflow ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 2
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.2.1 (2020-12-02)
 
 #### :bug: Bug Fix
