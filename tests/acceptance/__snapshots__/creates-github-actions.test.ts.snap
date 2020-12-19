@@ -33,7 +33,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -76,7 +78,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -119,7 +123,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -173,7 +179,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -225,7 +233,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -268,7 +278,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -311,7 +323,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -365,7 +379,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -417,7 +433,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -460,7 +478,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -503,7 +523,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -557,7 +579,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -609,7 +633,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -652,7 +678,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -695,7 +723,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -750,7 +780,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -802,7 +834,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -845,7 +879,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -888,7 +924,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -943,7 +981,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/package-lock.json'
           ) }}
@@ -995,7 +1035,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1038,7 +1080,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1081,7 +1125,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1137,7 +1183,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1189,7 +1237,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1232,7 +1282,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1275,7 +1327,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
@@ -1332,7 +1386,9 @@ jobs:
       id: cache-dependencies
       uses: actions/cache@v2
       with:
-        path: \${{ steps.global-cache-dir-path.outputs.dir }}
+        path:
+          \${{ steps.global-cache-dir-path.outputs.dir }}
+          node_modules
         key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
           hashFiles('**/yarn.lock'
           ) }}
