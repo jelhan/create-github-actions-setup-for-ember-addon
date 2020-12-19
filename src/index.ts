@@ -5,12 +5,14 @@ import parseTravisCiConfig from './parser/travis-ci';
 import path from 'path';
 import process from 'process';
 
+interface EmberTryScenario {
+  scenario: string;
+  allowedToFail: boolean;
+}
+
 interface ConfigurationInterface {
   browsers: string[];
-  emberTryScenarios: {
-    allowedToFail: string[];
-    required: string[];
-  };
+  emberTryScenarios: EmberTryScenario[];
   nodeVersion: string;
   packageManager: 'npm' | 'yarn';
 }
@@ -32,17 +34,40 @@ const templateFile = path.join(
 );
 const data: ConfigurationInterface = parseTravisCiConfig() ?? {
   browsers: ['chrome', 'firefox'],
-  emberTryScenarios: {
-    required: [
-      'ember-lts-3.16',
-      'ember-lts-3.20',
-      'ember-release',
-      'ember-beta',
-      'ember-default-with-jquery',
-      'ember-classic',
-    ],
-    allowedToFail: ['ember-canary', 'embroider-tests'],
-  },
+  emberTryScenarios: [
+    {
+      scenario: 'ember-lts-3.16',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-lts-3.20',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-release',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-beta',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-default-with-jquery',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-classic',
+      allowedToFail: false,
+    },
+    {
+      scenario: 'ember-canary',
+      allowedToFail: true,
+    },
+    {
+      scenario: 'embroider-tests',
+      allowedToFail: true,
+    },
+  ],
   nodeVersion: '10.x',
   packageManager: 'yarn',
 };
@@ -60,4 +85,4 @@ ejs.renderFile(templateFile, data, options, function (err, str) {
   fs.writeFileSync(gitHubActionsWorkflowFile, str);
 });
 
-export { ConfigurationInterface };
+export { ConfigurationInterface, EmberTryScenario };

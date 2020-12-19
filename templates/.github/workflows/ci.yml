@@ -193,12 +193,18 @@ jobs:
       fail-fast: true
       matrix:
         ember-try-scenario: [<%
-          emberTryScenarios.required.forEach(function(scenario, index){ %>
-          <%- scenario %><% if (index < emberTryScenarios.required.length - 1) { %>,<% }}); %>
+          emberTryScenarios
+            .filter(({ allowedToFail }) => !allowedToFail)
+            .forEach(function({ scenario }, index, requiredEmberTryScenarios) {
+              const isLastElement = requiredEmberTryScenarios.length - 1 === index; %>
+          <%- scenario %><% if (!isLastElement) { %>,<% }
+            }); %>
         ]
         allow-failure: [false]
         include:<%
-          emberTryScenarios.allowedToFail.forEach(function(scenario){ %>
+          emberTryScenarios
+            .filter(({ allowedToFail }) => allowedToFail)
+            .forEach(function({ scenario }) { %>
           - ember-try-scenario: <%- scenario %>
             allow-failure: true<% }); %>
 

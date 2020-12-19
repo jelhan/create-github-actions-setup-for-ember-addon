@@ -1,4 +1,4 @@
-import { ConfigurationInterface } from '../index';
+import { ConfigurationInterface, EmberTryScenario } from '../index';
 import debug from '../utils/debug';
 import fs from 'fs';
 import path from 'path';
@@ -62,38 +62,34 @@ export default function (): ConfigurationInterface | null {
   );
   const nodeVersion = `${config.node_js?.[0]}.x`;
 
-  const emberTryScenarios: string[] = config.jobs.include
-    .map(({ env }: { env: unknown }): string | null => {
+  const emberTryScenarios: EmberTryScenario[] = config.jobs.include
+    .map(({ env }: { env: unknown }) => {
       if (typeof env !== 'string') {
         return null;
       }
 
       const [key, value] = env.split('=');
-      return key === 'EMBER_TRY_SCENARIO' ? value : null;
-    })
-    .filter((_: string | null) => _ !== null);
-  const allowedToFailEmberTryScenarios: string[] = config.jobs.allow_failures
-    .map(({ env }: { env: unknown }): string | null => {
-      if (typeof env !== 'string') {
+
+      if (key !== 'EMBER_TRY_SCENARIO') {
         return null;
       }
 
-      const [key, value] = env.split('=');
-      return key === 'EMBER_TRY_SCENARIO' ? value : null;
+      return {
+        scenario: value,
+        allowedToFail: config.jobs.allow_failures.some(
+          ({ env: envAllowedToFail }: { env: unknown }) => {
+            return envAllowedToFail === env;
+          }
+        ),
+      };
     })
     .filter((_: string | null) => _ !== null);
-  const requiredEmberTryScenarios = emberTryScenarios.filter(
-    (scenario) => !allowedToFailEmberTryScenarios.includes(scenario)
-  );
 
   const packageManager: 'npm' | 'yarn' = determinePackageManager(config);
 
   return {
     browsers,
-    emberTryScenarios: {
-      required: requiredEmberTryScenarios,
-      allowedToFail: allowedToFailEmberTryScenarios,
-    },
+    emberTryScenarios,
     nodeVersion,
     packageManager,
   };
