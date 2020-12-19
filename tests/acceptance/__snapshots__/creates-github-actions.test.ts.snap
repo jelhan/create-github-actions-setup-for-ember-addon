@@ -43,8 +43,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: npm run-script lint
@@ -87,8 +86,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -131,8 +129,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -186,8 +183,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -239,8 +235,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: npm run-script lint
@@ -283,8 +278,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -327,8 +321,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -382,8 +375,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -435,8 +427,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: npm run-script lint
@@ -479,8 +470,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -523,8 +513,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -578,8 +567,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -631,8 +619,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: npm run-script lint
@@ -675,8 +662,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -719,8 +705,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -775,8 +760,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -828,8 +812,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: npm run-script lint
@@ -872,8 +855,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -916,8 +898,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -972,8 +953,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -1025,8 +1005,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: yarn lint
@@ -1069,8 +1048,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -1113,8 +1091,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -1170,8 +1147,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
@@ -1223,8 +1199,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: yarn lint
@@ -1267,8 +1242,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -1311,8 +1285,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -1369,8 +1342,7 @@ jobs:
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:

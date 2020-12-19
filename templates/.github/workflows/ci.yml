@@ -55,8 +55,7 @@ jobs:
           %>yarn install --frozen-lockfile<%
         } %>
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Lint
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> lint
@@ -114,8 +113,7 @@ jobs:
           %>yarn install --frozen-lockfile<%
         } %>
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
@@ -173,8 +171,7 @@ jobs:
           %>yarn install --frozen-lockfile<%
         } %>
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
@@ -241,8 +238,7 @@ jobs:
           %>yarn install --frozen-lockfile<%
         } %>
       if: |
-        steps.cache-global-package-manager-cache.outputs.cache-hit != 'true' ||
-        steps.cache-node-modules.outputs.cache-hit != 'true'
+        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       env:
