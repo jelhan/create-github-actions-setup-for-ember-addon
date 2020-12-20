@@ -4,6 +4,7 @@ import fs from 'fs';
 import parseTravisCiConfig from './parser/travis-ci';
 import path from 'path';
 import process from 'process';
+import yaml from 'js-yaml';
 
 interface EmberTryScenario {
   scenario: string;
@@ -32,7 +33,7 @@ const templateFile = path.join(
   'workflows',
   'ci.yml'
 );
-const data: ConfigurationInterface = parseTravisCiConfig() ?? {
+const configuration: ConfigurationInterface = parseTravisCiConfig() ?? {
   browsers: ['chrome', 'firefox'],
   emberTryScenarios: [
     {
@@ -71,6 +72,10 @@ const data: ConfigurationInterface = parseTravisCiConfig() ?? {
   nodeVersion: '10.x',
   packageManager: 'yarn',
 };
+const data = Object.assign(
+  { configurationDump: yaml.safeDump(configuration) },
+  configuration
+);
 const options = {
   // debug: true,
 };
