@@ -2,9 +2,12 @@
 
 Creates GitHub Actions for Ember Addon with NPM init / yarn create command.
 
-The script analyzes an existing TravisCI configuration and tries to migrate it over to GitHub Actions.
-
 > This is early alpha software. Use with care and double check the generated GitHub Actions workflow.
+
+## Features
+
+- Update an existing GitHub Actions workflow to latest blueprints using configuration from last run.
+- Analyse an existing TravisCI configuration and migrate it over to GitHub Actions.
 
 ## Usage
 
@@ -15,6 +18,18 @@ yarn create github-actions-setup-for-ember-addon
 # in an npm repo
 npm init github-actions-setup-for-ember-addon
 ```
+
+The configuration to be used depends on the repository. It is determined using this algorithm:
+
+1. Use configuration persisted in `.github/workflows/ci.yml` by a previous run if exists.
+2. Analyse `.travis.yml` if one exist.
+3. Fallback to defaults.
+
+## Limitations of Travis CI parser
+
+- Only supports TravisCI configuration following the schema used by Ember CLI >= 3.4.
+- Environment variables used in TravisCI pipelines are not migrated (yet).
+- Customizations of `before_install` or `script` steps are not migrated (yet).
 
 ## Contributing
 
