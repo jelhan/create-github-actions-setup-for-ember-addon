@@ -2,8 +2,10 @@ import debug from './utils/debug';
 import ejs from 'ejs';
 import fs from 'fs';
 import parseTravisCiConfig from './parser/travis-ci';
+import parsePreviosRunConfig from './parser/previous-run';
 import path from 'path';
 import process from 'process';
+import yaml from 'js-yaml';
 
 interface EmberTryScenario {
   scenario: string;
@@ -32,45 +34,50 @@ const templateFile = path.join(
   'workflows',
   'ci.yml'
 );
-const data: ConfigurationInterface = parseTravisCiConfig() ?? {
-  browsers: ['chrome', 'firefox'],
-  emberTryScenarios: [
-    {
-      scenario: 'ember-lts-3.16',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-lts-3.20',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-release',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-beta',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-default-with-jquery',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-classic',
-      allowedToFail: false,
-    },
-    {
-      scenario: 'ember-canary',
-      allowedToFail: true,
-    },
-    {
-      scenario: 'embroider-tests',
-      allowedToFail: true,
-    },
-  ],
-  nodeVersion: '10.x',
-  packageManager: 'yarn',
-};
+const configuration: ConfigurationInterface = parsePreviosRunConfig() ??
+  parseTravisCiConfig() ?? {
+    browsers: ['chrome', 'firefox'],
+    emberTryScenarios: [
+      {
+        scenario: 'ember-lts-3.16',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-lts-3.20',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-release',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-beta',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-default-with-jquery',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-classic',
+        allowedToFail: false,
+      },
+      {
+        scenario: 'ember-canary',
+        allowedToFail: true,
+      },
+      {
+        scenario: 'embroider-tests',
+        allowedToFail: true,
+      },
+    ],
+    nodeVersion: '10.x',
+    packageManager: 'yarn',
+  };
+const data = Object.assign(
+  { configurationDump: yaml.safeDump(configuration) },
+  configuration
+);
 const options = {
   // debug: true,
 };
