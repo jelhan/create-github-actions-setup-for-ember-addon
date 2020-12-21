@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.4.0 (2020-12-21)
+
+#### :rocket: Enhancement
+* [#31](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/31) Log configuration used ([@jelhan](https://github.com/jelhan))
+* [#29](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/29) Support upgrades of generated workflows ([@jelhan](https://github.com/jelhan))
+* [#27](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/27) Make configuration interface more flexible for upcoming use cases ([@jelhan](https://github.com/jelhan))
+* [#25](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/25) Simplify cache setup ([@jelhan](https://github.com/jelhan))
+
+#### :memo: Documentation
+* [#24](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/24) Add contributing docs ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
+
 ## v0.3.0 (2020-12-06)
 
 #### :rocket: Enhancement
