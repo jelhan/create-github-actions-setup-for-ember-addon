@@ -31,7 +31,7 @@ function determinePackageManager(config: {
   );
 }
 
-export default function (): ConfigurationInterface | null {
+export default function parseTravisCiConfig(): ConfigurationInterface | null {
   const configFile = path.join(process.cwd(), '.travis.yml');
 
   debug(`Looking for TravisCI configuration at ${configFile}`);

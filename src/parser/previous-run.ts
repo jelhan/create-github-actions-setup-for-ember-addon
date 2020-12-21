@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-export default function (): ConfigurationInterface | null {
+export default function parsePreviousRunConfig(): ConfigurationInterface | null {
   const gitHubActionFile = path.join(process.cwd(), '.github/workflows/ci.yml');
 
   debug(
