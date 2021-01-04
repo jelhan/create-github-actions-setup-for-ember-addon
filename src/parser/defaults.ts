@@ -1,4 +1,24 @@
 import { ConfigurationInterface } from '../index';
+import { existsSync } from 'fs';
+
+function determinePackageManager() {
+  const isNPM = existsSync('package-lock.json');
+  const isYarn = existsSync('yarn.lock');
+
+  if (isNPM && isYarn) {
+    throw new Error(
+      'Unable to determine package manager. Project seems to have both package-lock.json and yarn.lock.'
+    );
+  }
+
+  if (!isNPM && !isYarn) {
+    throw new Error(
+      'Unable to determine package manager. Project seems to have neither package-lock.json nor yarn.lock'
+    );
+  }
+
+  return isNPM ? 'npm' : 'yarn';
+}
 
 export default function (): ConfigurationInterface {
   return {
@@ -38,6 +58,6 @@ export default function (): ConfigurationInterface {
       },
     ],
     nodeVersion: '10.x',
-    packageManager: 'yarn',
+    packageManager: determinePackageManager(),
   };
 }
