@@ -1,5 +1,38 @@
 import { ConfigurationInterface } from '../index';
-import { existsSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
+import { major as semverMajor, minVersion as semverMinVersion } from 'semver';
+
+function determineNodeVersion(): string {
+  let packageJson;
+  try {
+    packageJson = JSON.parse(
+      readFileSync('package.json', { encoding: 'utf-8' })
+    );
+  } catch (error) {
+    throw new Error(
+      'Could not read package.json. Please double-check that current working ' +
+        'dir is the root folder of your project.'
+    );
+  }
+
+  const supportedNodeRange = packageJson?.engines?.node;
+  if (typeof supportedNodeRange !== 'string') {
+    throw new Error(
+      'Unable to determine supported node version. Package.json seems to miss ' +
+        '`engines.node` key.'
+    );
+  }
+
+  const minSupportedNodeVersion = semverMinVersion(supportedNodeRange);
+  if (!minSupportedNodeVersion) {
+    throw new Error(
+      'Unable to determine supported node version. Failed to parse `engines.node` ' +
+        `value from package.json as semver. It is ${supportedNodeRange}.`
+    );
+  }
+
+  return semverMajor(minSupportedNodeVersion).toString();
+}
 
 function determinePackageManager() {
   const isNPM = existsSync('package-lock.json');
@@ -57,7 +90,7 @@ export default function (): ConfigurationInterface {
         allowedToFail: true,
       },
     ],
-    nodeVersion: '10.x',
+    nodeVersion: determineNodeVersion(),
     packageManager: determinePackageManager(),
   };
 }
