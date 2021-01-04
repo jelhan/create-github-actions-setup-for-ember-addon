@@ -1,7 +1,12 @@
 import { ConfigurationInterface } from '../index';
 import { existsSync, readFileSync } from 'fs';
 import { major as semverMajor, minVersion as semverMinVersion } from 'semver';
+import path from 'path';
 
+/**
+ * Determines minimum supported node version by parsing `engines.node` value
+ * from project's `package.json`.
+ */
 function determineNodeVersion(): string {
   let packageJson;
   try {
@@ -34,6 +39,10 @@ function determineNodeVersion(): string {
   return semverMajor(minSupportedNodeVersion).toString();
 }
 
+/**
+ * Determines package manager used by project by existence of either
+ * package-lock.json or yarn.lock.
+ */
 function determinePackageManager() {
   const isNPM = existsSync('package-lock.json');
   const isYarn = existsSync('yarn.lock');
@@ -53,9 +62,26 @@ function determinePackageManager() {
   return isNPM ? 'npm' : 'yarn';
 }
 
+/**
+ * Determines browsers supported by project based on testem.js configuration.
+ */
+function determineBrowsers(): string[] {
+  let testemConfiguration;
+  try {
+    testemConfiguration = require(path.join(process.cwd(), 'testem.js'));
+  } catch (error) {
+    throw new Error(
+      'Could not calculate testem configuration. Please double-check that current working ' +
+        `dir is the root folder of your project.\n${error}`
+    );
+  }
+
+  return testemConfiguration?.launch_in_ci ?? ['chrome'];
+}
+
 export default function (): ConfigurationInterface {
   return {
-    browsers: ['chrome', 'firefox'],
+    browsers: determineBrowsers(),
     emberTryScenarios: [
       {
         scenario: 'ember-lts-3.16',
