@@ -1,6 +1,7 @@
 import execa from 'execa';
 import fs from 'fs';
-import fsPromises from 'fs/promises';
+import { mkdtemp, readFile, rmdir } from 'fs/promises';
+import { copy } from 'fs-extra';
 import os from 'os';
 import path from 'path';
 
@@ -15,12 +16,12 @@ const executable = path.join(
 let tmpDirForTesting: string;
 
 beforeEach(async () => {
-  tmpDirForTesting = await fsPromises.mkdtemp(
+  tmpDirForTesting = await mkdtemp(
     path.join(os.tmpdir(), 'create-github-actions-setup-for-ember-addon-tests-')
   );
 });
 afterEach(async () => {
-  await fsPromises.rmdir(tmpDirForTesting, { recursive: true });
+  await rmdir(tmpDirForTesting, { recursive: true });
 });
 
 describe('creates GitHub Actions setup', () => {
@@ -30,7 +31,7 @@ describe('creates GitHub Actions setup', () => {
     });
 
     expect(
-      await fsPromises.readFile(
+      await readFile(
         path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
         { encoding: 'utf-8' }
       )
@@ -48,24 +49,14 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario ci.yml.${scenario}`, async () => {
-        const workflowsPath = path.join(
-          tmpDirForTesting,
-          '.github',
-          'workflows'
-        );
-
-        await fsPromises.mkdir(workflowsPath, { recursive: true });
-        await fsPromises.copyFile(
-          path.join(fixturesPath, scenario, '.github', 'workflows', 'ci.yml'),
-          path.join(workflowsPath, 'ci.yml')
-        );
+        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
         });
 
         expect(
-          await fsPromises.readFile(
+          await readFile(
             path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
             { encoding: 'utf-8' }
           )
@@ -80,17 +71,14 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario .travis.yml.${scenario}`, async () => {
-        await fsPromises.copyFile(
-          path.join(fixturesPath, scenario, '.travis.yml'),
-          path.join(tmpDirForTesting, '.travis.yml')
-        );
+        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
         });
 
         expect(
-          await fsPromises.readFile(
+          await readFile(
             path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
             { encoding: 'utf-8' }
           )
