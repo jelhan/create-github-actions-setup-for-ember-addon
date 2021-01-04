@@ -25,6 +25,16 @@ The configuration to be used depends on the repository. It is determined using t
 2. Analyse `.travis.yml` if one exist.
 3. Fallback to defaults.
 
+## Defaults
+
+The script tries to calculate sensitive defaults if no configuration from a previous run nor an existing `.travis.yml` is found.
+The defaults are calculated based on the actual project:
+
+- Determines node version based on minimum allowed version on `engines.node` key of project's `package.json`.
+- Picks up package manager used by your project based on existence of either `package-lock.json` or `yarn.lock`.
+- Includes all Ember Try scenarios defined in `config/ember-try.js` in generated test matrix.
+- Configures CI to run test against all browsers configured in Testem's `launch_in_ci` configuration.
+
 ## Limitations of Travis CI parser
 
 - Only supports TravisCI configuration following the schema used by Ember CLI >= 3.4.
