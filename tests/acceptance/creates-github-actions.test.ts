@@ -42,13 +42,12 @@ describe('creates GitHub Actions setup', () => {
       __dirname,
       '..',
       'fixtures',
-      '.github',
-      'workflows'
+      'github-actions'
     );
     const scenarios = fs.readdirSync(fixturesPath);
 
     scenarios.forEach((scenario) => {
-      it(`supports scenario ${scenario}`, async () => {
+      it(`supports scenario ci.yml.${scenario}`, async () => {
         const workflowsPath = path.join(
           tmpDirForTesting,
           '.github',
@@ -57,7 +56,7 @@ describe('creates GitHub Actions setup', () => {
 
         await fsPromises.mkdir(workflowsPath, { recursive: true });
         await fsPromises.copyFile(
-          path.join(fixturesPath, scenario),
+          path.join(fixturesPath, scenario, '.github', 'workflows', 'ci.yml'),
           path.join(workflowsPath, 'ci.yml')
         );
 
@@ -76,15 +75,13 @@ describe('creates GitHub Actions setup', () => {
   });
 
   describe('migrates existing TravisCI configration', () => {
-    const fixturesPath = path.join(__dirname, '..', 'fixtures');
-    const scenarios = fs
-      .readdirSync(fixturesPath)
-      .filter((_) => _.startsWith('.travis.yml'));
+    const fixturesPath = path.join(__dirname, '..', 'fixtures', 'travis-ci');
+    const scenarios = fs.readdirSync(fixturesPath);
 
     scenarios.forEach((scenario) => {
-      it(`supports scenario ${scenario}`, async () => {
+      it(`supports scenario .travis.yml.${scenario}`, async () => {
         await fsPromises.copyFile(
-          path.join(fixturesPath, scenario),
+          path.join(fixturesPath, scenario, '.travis.yml'),
           path.join(tmpDirForTesting, '.travis.yml')
         );
 
