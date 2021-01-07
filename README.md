@@ -8,6 +8,7 @@ Creates GitHub Actions for Ember Addon with NPM init / yarn create command.
 
 - Update an existing GitHub Actions workflow to latest blueprints using configuration from last run.
 - Analyse an existing TravisCI configuration and migrate it over to GitHub Actions.
+- Calculate reasonable defaults based on your project.
 
 ## Usage
 
