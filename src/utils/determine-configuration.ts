@@ -6,7 +6,7 @@ import calculateDefaults from '../parser/defaults';
 
 interface Parser {
   name: string;
-  parse: { (): ConfigurationInterface | null };
+  parse: { (): Promise<ConfigurationInterface | null> };
 }
 
 const parsers: Parser[] = [
@@ -24,12 +24,12 @@ const parsers: Parser[] = [
   },
 ];
 
-export default function determineConfiguration(): ConfigurationInterface {
+export default async function determineConfiguration(): Promise<ConfigurationInterface> {
   for (const parser of parsers) {
     const { name, parse } = parser;
 
     debug(`Trying parser ${name}`);
-    const config = parse();
+    const config = await parse();
 
     if (config === null) {
       continue;
