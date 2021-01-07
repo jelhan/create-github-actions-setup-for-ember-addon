@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.1 (2021-01-07)
+
+#### :bug: Bug Fix
+* [#36](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/36) generated floating deps test must ignore lockfile ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.5.0 (2021-01-07)
 
 #### :rocket: Enhancement
