@@ -166,7 +166,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -399,7 +399,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -632,7 +632,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -867,7 +867,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -1103,7 +1103,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -1341,7 +1341,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -1576,7 +1576,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -1811,7 +1811,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -2034,7 +2034,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -2251,7 +2251,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install --no-package-lock
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -2468,7 +2468,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -2686,7 +2686,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 
@@ -2903,7 +2903,7 @@ jobs:
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
-      run: yarn install --frozen-lockfile
+      run: yarn install --no-lockfile --non-interactive
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
 

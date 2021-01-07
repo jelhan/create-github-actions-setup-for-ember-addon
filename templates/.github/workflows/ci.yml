@@ -189,9 +189,9 @@ jobs:
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
-          %>npm ci<%
+          %>npm install --no-package-lock<%
         } else {
-          %>yarn install --frozen-lockfile<%
+          %>yarn install --no-lockfile --non-interactive<%
         } %>
       if: |
         steps.cache-dependencies.outputs.cache-hit != 'true'
