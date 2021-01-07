@@ -1,9 +1,9 @@
 import execa from 'execa';
 import fs from 'fs';
 import { mkdtemp, readFile, rmdir } from 'fs/promises';
-import { copy } from 'fs-extra';
 import os from 'os';
 import path from 'path';
+import { prepareFixtures } from '../utils/fixtures';
 
 const executable = path.join(
   __dirname,
@@ -31,7 +31,10 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario: ${scenario}`, async () => {
-        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
+        await prepareFixtures(
+          path.join('defaults', scenario),
+          tmpDirForTesting
+        );
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
@@ -58,7 +61,10 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario ci.yml.${scenario}`, async () => {
-        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
+        await prepareFixtures(
+          path.join('github-actions', scenario),
+          tmpDirForTesting
+        );
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
@@ -80,7 +86,10 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario .travis.yml.${scenario}`, async () => {
-        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
+        await prepareFixtures(
+          path.join('travis-ci', scenario),
+          tmpDirForTesting
+        );
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
