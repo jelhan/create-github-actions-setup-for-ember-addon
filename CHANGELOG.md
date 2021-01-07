@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.5.0 (2021-01-07)
+
+#### :rocket: Enhancement
+* [#34](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/34) Use reasonable defaults based on the project ([@jelhan](https://github.com/jelhan))
+
+#### :house: Internal
+* [#33](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/33) Reorganize file structure for fixtures ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.4.0 (2020-12-21)
 
 #### :rocket: Enhancement

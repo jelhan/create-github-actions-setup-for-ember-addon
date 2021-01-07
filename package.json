@@ -1,6 +1,6 @@
 {
   "name": "create-github-actions-setup-for-ember-addon",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Setup GitHub Actions for an Ember Addon",
   "repository": "https://github.com/jelhan/create-github-actions-setup-for-ember-addon.git",
   "license": "MIT",
