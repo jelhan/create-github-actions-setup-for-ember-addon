@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "ember-source-channel-url": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}

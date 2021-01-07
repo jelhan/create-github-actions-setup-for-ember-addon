@@ -1,9 +1,9 @@
 import execa from 'execa';
 import fs from 'fs';
 import { mkdtemp, readFile, rmdir } from 'fs/promises';
-import { copy } from 'fs-extra';
 import os from 'os';
 import path from 'path';
+import { prepareFixtures } from '../utils/fixtures';
 
 const executable = path.join(
   __dirname,
@@ -25,17 +25,29 @@ afterEach(async () => {
 });
 
 describe('creates GitHub Actions setup', () => {
-  it('uses default values if no TravisCI configuration exists', async () => {
-    await execa(executable, [], {
-      cwd: tmpDirForTesting,
-    });
+  describe('uses default values if no other parser matches', () => {
+    const fixturesPath = path.join(__dirname, '..', 'fixtures', 'defaults');
+    const scenarios = fs.readdirSync(fixturesPath);
 
-    expect(
-      await readFile(
-        path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
-        { encoding: 'utf-8' }
-      )
-    ).toMatchSnapshot();
+    scenarios.forEach((scenario) => {
+      it(`supports scenario: ${scenario}`, async () => {
+        await prepareFixtures(
+          path.join('defaults', scenario),
+          tmpDirForTesting
+        );
+
+        await execa(executable, [], {
+          cwd: tmpDirForTesting,
+        });
+
+        expect(
+          await readFile(
+            path.join(tmpDirForTesting, '.github', 'workflows', 'ci.yml'),
+            { encoding: 'utf-8' }
+          )
+        ).toMatchSnapshot();
+      });
+    });
   });
 
   describe('picks up configuration from previous run stored in GitHub Actions workflow', () => {
@@ -49,7 +61,10 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario ci.yml.${scenario}`, async () => {
-        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
+        await prepareFixtures(
+          path.join('github-actions', scenario),
+          tmpDirForTesting
+        );
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
@@ -71,7 +86,10 @@ describe('creates GitHub Actions setup', () => {
 
     scenarios.forEach((scenario) => {
       it(`supports scenario .travis.yml.${scenario}`, async () => {
-        await copy(path.join(fixturesPath, scenario), tmpDirForTesting);
+        await prepareFixtures(
+          path.join('travis-ci', scenario),
+          tmpDirForTesting
+        );
 
         await execa(executable, [], {
           cwd: tmpDirForTesting,
