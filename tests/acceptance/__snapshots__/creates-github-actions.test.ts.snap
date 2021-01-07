@@ -159,16 +159,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -392,16 +388,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -625,16 +617,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -860,16 +848,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -1096,16 +1080,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -1334,16 +1314,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -1569,16 +1545,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -1804,16 +1776,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -2027,16 +1995,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -2244,16 +2208,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/package-lock.json'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: npm install --no-package-lock
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: npm run-script test:ember --launch \${{ matrix.browser }}
@@ -2461,16 +2421,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -2679,16 +2635,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
@@ -2896,16 +2848,12 @@ jobs:
         path: |
           \${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: \${{ runner.os }}-\${{ matrix.node-version }}-\${{
-          hashFiles('**/yarn.lock'
-          ) }}
+        key: \${{ runner.os }}-\${{ matrix.node-version }}-floating-deps
         restore-keys: |
           \${{ runner.os }}-\${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: yarn test:ember --launch \${{ matrix.browser }}
