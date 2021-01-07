@@ -175,26 +175,17 @@ jobs:
         path: |
           ${{ steps.global-cache-dir-path.outputs.dir }}
           node_modules
-        key: ${{ runner.os }}-${{ matrix.node-version }}-${{
-          hashFiles('**/<%
-            if (packageManager === 'npm') {
-              %>package-lock.json<%
-            } else {
-              %>yarn.lock<%
-            } %>'
-          ) }}
+        key: ${{ runner.os }}-${{ matrix.node-version }}-floating-deps
         restore-keys: |
           ${{ runner.os }}-${{ matrix.node-version }}-
 
     - name: Install Dependencies
       run: <%
         if (packageManager === 'npm') {
-          %>npm ci<%
+          %>npm install --no-package-lock<%
         } else {
-          %>yarn install --frozen-lockfile<%
+          %>yarn install --no-lockfile --non-interactive<%
         } %>
-      if: |
-        steps.cache-dependencies.outputs.cache-hit != 'true'
 
     - name: Test
       run: <% if (packageManager === 'npm') { %>npm run-script<% } else { %>yarn<% } %> test:ember --launch ${{ matrix.browser }}
