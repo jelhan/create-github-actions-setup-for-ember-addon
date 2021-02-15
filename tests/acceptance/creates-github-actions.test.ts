@@ -1,9 +1,12 @@
 import execa from 'execa';
 import fs from 'fs';
-import { mkdtemp, readFile, rmdir } from 'fs/promises';
+import { promises as fsPromises } from 'fs';
 import os from 'os';
 import path from 'path';
 import { prepareFixtures } from '../utils/fixtures';
+
+// import directly from fs/promises when dropping node 12 support
+const { mkdtemp, readFile, rmdir } = fsPromises;
 
 const executable = path.join(
   __dirname,
