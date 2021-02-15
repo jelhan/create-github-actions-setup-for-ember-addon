@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.6.0 (2021-02-15)
+
+#### :rocket: Enhancement
+* [#42](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/42) Add support for node 12.x ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.5.1 (2021-01-07)
 
 #### :bug: Bug Fix
