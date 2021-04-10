@@ -19,17 +19,11 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-2.16
-#$     allowedToFail: false
 #$   - scenario: ember-lts-2.18
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$ nodeVersion: 6.x
 #$ packageManager: npm
 #
@@ -173,7 +167,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -184,12 +178,9 @@ jobs:
           ember-lts-2.18,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -248,17 +239,11 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-2.18
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.4
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$ nodeVersion: 6.x
 #$ packageManager: npm
 #
@@ -402,7 +387,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -413,12 +398,9 @@ jobs:
           ember-lts-3.4,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -477,17 +459,11 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.4
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.8
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$ nodeVersion: 8.x
 #$ packageManager: npm
 #
@@ -631,7 +607,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -642,12 +618,9 @@ jobs:
           ember-lts-3.8,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -706,19 +679,12 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.16
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$   - scenario: ember-classic
-#$     allowedToFail: false
 #$ nodeVersion: 10.x
 #$ packageManager: npm
 #
@@ -862,7 +828,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -873,13 +839,10 @@ jobs:
           ember-lts-3.16,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery,
           ember-classic
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -938,19 +901,12 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.16
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$   - scenario: ember-classic
-#$     allowedToFail: false
 #$ nodeVersion: 10.x
 #$ packageManager: npm
 #
@@ -1094,7 +1050,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -1105,13 +1061,10 @@ jobs:
           ember-lts-3.16,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery,
           ember-classic
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -1170,21 +1123,13 @@ exports[`creates GitHub Actions setup migrates existing TravisCI configration su
 #$   - chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.16
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.20
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: true
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$   - scenario: ember-classic
-#$     allowedToFail: false
 #$ nodeVersion: 10.x
 #$ packageManager: yarn
 #
@@ -1328,7 +1273,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -1340,13 +1285,10 @@ jobs:
           ember-lts-3.20,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery,
           ember-classic
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -1559,7 +1501,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -1570,12 +1512,9 @@ jobs:
           ember-lts-2.18,
           ember-release,
           ember-beta,
+          ember-canary,
           ember-default-with-jquery
         ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
 
     steps:
     - uses: actions/checkout@v2
@@ -1634,19 +1573,12 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.16
-#$     allowedToFail: false
 #$   - scenario: ember-lts-3.20
-#$     allowedToFail: false
 #$   - scenario: ember-release
-#$     allowedToFail: false
 #$   - scenario: ember-beta
-#$     allowedToFail: false
 #$   - scenario: ember-canary
-#$     allowedToFail: false
 #$   - scenario: ember-default-with-jquery
-#$     allowedToFail: false
 #$   - scenario: ember-classic
-#$     allowedToFail: false
 #$ nodeVersion: '10'
 #$ packageManager: yarn
 #
@@ -1790,7 +1722,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -1805,8 +1737,6 @@ jobs:
           ember-default-with-jquery,
           ember-classic
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2
@@ -1865,7 +1795,6 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$ nodeVersion: '6'
 #$ packageManager: yarn
 #
@@ -2009,7 +1938,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -2018,8 +1947,6 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2
@@ -2078,7 +2005,6 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$ nodeVersion: '10'
 #$ packageManager: npm
 #
@@ -2222,7 +2148,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -2231,8 +2157,6 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2
@@ -2291,7 +2215,6 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$ nodeVersion: '6'
 #$ packageManager: yarn
 #
@@ -2435,7 +2358,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -2444,8 +2367,6 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2
@@ -2505,7 +2426,6 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Firefox
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$ nodeVersion: '6'
 #$ packageManager: yarn
 #
@@ -2649,7 +2569,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -2658,8 +2578,6 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2
@@ -2718,7 +2636,6 @@ exports[`creates GitHub Actions setup uses default values if no other parser mat
 #$   - Chrome
 #$ emberTryScenarios:
 #$   - scenario: ember-lts-3.12
-#$     allowedToFail: false
 #$ nodeVersion: '10'
 #$ packageManager: yarn
 #
@@ -2862,7 +2779,7 @@ jobs:
   try-scenarios:
     name: Tests - \${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: \${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -2871,8 +2788,6 @@ jobs:
         ember-try-scenario: [
           ember-lts-3.12
         ]
-        allow-failure: [false]
-        include:
 
     steps:
     - uses: actions/checkout@v2

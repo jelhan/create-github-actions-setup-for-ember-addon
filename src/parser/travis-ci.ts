@@ -76,11 +76,6 @@ export default async function parseTravisCiConfig(): Promise<ConfigurationInterf
 
       return {
         scenario: value,
-        allowedToFail: config.jobs.allow_failures.some(
-          ({ env: envAllowedToFail }: { env: unknown }) => {
-            return envAllowedToFail === env;
-          }
-        ),
       };
     })
     .filter((_: string | null) => _ !== null);

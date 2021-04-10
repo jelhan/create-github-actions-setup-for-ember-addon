@@ -7,7 +7,6 @@ import yaml from 'js-yaml';
 
 interface EmberTryScenario {
   scenario: string;
-  allowedToFail: boolean;
 }
 
 interface ConfigurationInterface {
