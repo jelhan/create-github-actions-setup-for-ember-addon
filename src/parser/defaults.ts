@@ -102,7 +102,6 @@ async function determineEmberTryScenarios(): Promise<EmberTryScenario[]> {
       ({ name }: { name: string }): EmberTryScenario => {
         return {
           scenario: name,
-          allowedToFail: false,
         };
       }
     ) ?? []

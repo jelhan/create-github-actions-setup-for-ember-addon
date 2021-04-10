@@ -194,7 +194,7 @@ jobs:
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.allow-failure }}
+    continue-on-error: true
     needs: test
 
     strategy:
@@ -202,19 +202,11 @@ jobs:
       matrix:
         ember-try-scenario: [<%
           emberTryScenarios
-            .filter(({ allowedToFail }) => !allowedToFail)
             .forEach(function({ scenario }, index, requiredEmberTryScenarios) {
               const isLastElement = requiredEmberTryScenarios.length - 1 === index; %>
           <%- scenario %><% if (!isLastElement) { %>,<% }
             }); %>
         ]
-        allow-failure: [false]
-        include:<%
-          emberTryScenarios
-            .filter(({ allowedToFail }) => allowedToFail)
-            .forEach(function({ scenario }) { %>
-          - ember-try-scenario: <%- scenario %>
-            allow-failure: true<% }); %>
 
     steps:
     - uses: actions/checkout@v2
