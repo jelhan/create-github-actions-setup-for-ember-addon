@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.7.0 (2021-04-10)
+
+#### :boom: Breaking Change
+* [#45](https://github.com/jelhan/create-github-actions-setup-for-ember-addon/pull/45) All Ember Try Scenarios should run if one fails ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 1
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+
 ## v0.6.0 (2021-02-15)
 
 #### :rocket: Enhancement
